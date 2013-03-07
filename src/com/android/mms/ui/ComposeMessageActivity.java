@@ -182,9 +182,9 @@ import com.android.mms.util.SmileyParser;
 import android.text.InputFilter.LengthFilter;
 
 import android.provider.Settings.SettingNotFoundException;
+import android.hardware.SensorEventListener;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
 /**
@@ -2069,10 +2069,6 @@ public class ComposeMessageActivity extends Activity
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        /*
-         * get event if orientation is changed, save Sensor event.values to
-         * check on them later
-         */
         switch (event.sensor.getType()) {
             case Sensor.TYPE_ORIENTATION:
                 SensorOrientationY = (int) event.values[SensorManager.DATA_Y];
@@ -2091,7 +2087,7 @@ public class ComposeMessageActivity extends Activity
                 break;
         }
 
-        if (rightOrientation(SensorOrientationY) && proxChanged ) {
+        if (rightOrientation(SensorOrientationY) && SensorProximity == 0 && proxChanged ) {
             if (getRecipients().isEmpty() == false) {
                 // unregister Listener to don't let the onSesorChanged run the
                 // whole time
@@ -2116,15 +2112,7 @@ public class ComposeMessageActivity extends Activity
     }
 
     public boolean rightOrientation(int orinentation) {
-        if (orinentation < -65) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public boolean rightProximity(int oldProximityint, int currentProximity) {
-        if (oldProximity == 1 && currentProximity == 0) {
+        if (orinentation < -50 && orinentation > -130) {
             return true;
         } else {
             return false;
@@ -2461,19 +2449,6 @@ public class ComposeMessageActivity extends Activity
             }
         }, 100);
 
-        // Load the selected input type
-        SharedPreferences prefs = PreferenceManager
-                .getDefaultSharedPreferences((Context) ComposeMessageActivity.this);
-        mInputMethod = Integer.parseInt(prefs.getString(MessagingPreferenceActivity.INPUT_TYPE,
-                Integer.toString(InputType.TYPE_TEXT_VARIATION_SHORT_MESSAGE)));
-        mTextEditor.setInputType(InputType.TYPE_CLASS_TEXT | mInputMethod
-                | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT
-                | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES
-                | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
-
-        mIsRunning = true;
-        updateThreadIdIfRunning();
-
         try {
             if(Settings.System.getInt(getContentResolver(), PICK_UP_TO_CALL) == 1) {
                 SensorOrientationY = 0;
@@ -2492,6 +2467,19 @@ public class ComposeMessageActivity extends Activity
         } catch (SettingNotFoundException e) {
             Log.w("ERROR", e.toString());
         }
+
+        // Load the selected input type
+        SharedPreferences prefs = PreferenceManager
+                .getDefaultSharedPreferences((Context) ComposeMessageActivity.this);
+        mInputMethod = Integer.parseInt(prefs.getString(MessagingPreferenceActivity.INPUT_TYPE,
+                Integer.toString(InputType.TYPE_TEXT_VARIATION_SHORT_MESSAGE)));
+        mTextEditor.setInputType(InputType.TYPE_CLASS_TEXT | mInputMethod
+                | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT
+                | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES
+                | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+
+        mIsRunning = true;
+        updateThreadIdIfRunning();
     }
 
     @Override
@@ -2504,6 +2492,17 @@ public class ComposeMessageActivity extends Activity
         //Contact.stopPresenceObserver();
 
         removeRecipientsListeners();
+
+        try {
+            if(Settings.System.getInt(getContentResolver(),PICK_UP_TO_CALL) == 1) {
+                mSensorManager.unregisterListener(this, mSensorManager
+                                                .getDefaultSensor(Sensor.TYPE_ORIENTATION));
+                mSensorManager.unregisterListener(this, mSensorManager
+                                                .getDefaultSensor(Sensor.TYPE_PROXIMITY));
+            }
+        } catch (SettingNotFoundException e) {
+            Log.w("ERROR", e.toString());
+        }
 
         // remove any callback to display a progress spinner
         if (mAsyncDialog != null) {
@@ -2525,17 +2524,6 @@ public class ComposeMessageActivity extends Activity
         }
 
         mIsRunning = false;
-
-        try {
-            if(Settings.System.getInt(getContentResolver(),PICK_UP_TO_CALL) == 1) {
-                mSensorManager.unregisterListener(this, mSensorManager
-                                                .getDefaultSensor(Sensor.TYPE_ORIENTATION));
-                mSensorManager.unregisterListener(this, mSensorManager
-                                                .getDefaultSensor(Sensor.TYPE_PROXIMITY));
-            }
-        } catch (SettingNotFoundException e) {
-            Log.w("ERROR", e.toString());
-        }
     }
 
     @Override
