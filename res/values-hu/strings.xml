@@ -442,4 +442,45 @@
 
     <!-- Add menu for 'Add SMS to calendar remind' -->
     <string name="menu_add_to_calendar">Hozzáadás a naptárhoz</string>
+
+    <!-- Blacklist preferences -->
+    <string name="blacklist_title">Feketelista</string>
+    <string name="enable_blacklist_title">Engedélyezés</string>
+    <string name="blacklist_summary_disabled">Kikapcsolva</string>
+    <string name="blacklist_summary">A feketelistán szereplő számokról a bejövő üzenetek nem lesznek fogadva</string>
+    <string name="blacklist_notify">Értesítések mutatása</string>
+    <string name="blacklist_regex_title">Jokerek használata</string>
+    <string name="blacklist_regex_summary">Használható a . egy karakter helyett a * pedig több karakter helyett. Pl: 123.* az 123-mal kezdődő számokhoz és a .*123.* azokhoz a számokhoz amik tartalmazzák az 123-t</string>
+
+    <!-- Blacklist management -->
+    <string name="add_blacklist_number">Szám hozzáadása</string>
+    <string name="add_to_blacklist">Hozzáadás a feketelistához</string>
+    <string name="add_to_blacklist_message">A jövőben a %s számról érkező üzenetek blokkolva lesznek</string>
+    <string name="remove_blacklist_number_title">Szám törlése</string>
+    <string name="remove_blacklist_number">Biztos törölni akarod a %s számot a feketelistáról?</string>
+
+    <!-- Blacklist notifications -->
+    <string name="blacklist_notification">Beérkező üzenet blokkolva a %s számról</string>
+    <string name="unblock_number">Tiltás törlése</string>
+
+    <!-- Text for the onscreen "Blacklist" button -->
+    <string name="onscreenBlacklistText">Feketelista</string>
+
+    <!-- Button label which indicates the user wants to update a stored
+         phone number; used in several settings-related dialogs -->
+    <string name="change_num">Frissítés</string>
+
+    <!-- Button label used in several settings-related dialogs -->
+    <string name="enable">Bekapcsol</string>
+    <!-- Button label used in several settings-related dialogs -->
+    <string name="disable">Kikapcsol</string>
+
+    <!-- Label for "cancel" button on the MMI dialog -->
+    <string name="cancel">Mégse</string>
+
+    <!-- Positive button label ("OK") used in several dialogs in the phone UI [CHAR LIMIT=10] -->
+    <string name="ok">OK</string>
+
+    <string name="selectContact">Névjegy választása</string>
+
 </resources>

@@ -18,11 +18,8 @@
 
 package com.android.mms.ui;
 
-import com.android.mms.MmsApp;
-import com.android.mms.MmsConfig;
-import com.android.mms.R;
-
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ContentResolver;
@@ -30,6 +27,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
@@ -43,10 +41,15 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.SearchRecentSuggestions;
 import android.text.InputType;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.android.mms.MmsApp;
+import com.android.mms.MmsConfig;
+import com.android.mms.R;
 import com.android.mms.templates.TemplatesListActivity;
+import com.android.mms.transaction.TransactionService;
 import com.android.mms.util.Recycler;
 
 /**
@@ -90,6 +93,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     // Keyboard input type
     public static final String INPUT_TYPE                = "pref_key_mms_input_type";
 
+    // Blacklist
+    public static final String BUTTON_BLACKLIST  = "button_blacklist";
+
     // Menu entries
     private static final int MENU_RESTORE_DEFAULTS    = 1;
 
@@ -119,6 +125,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     private CheckBoxPreference mEnableQmCloseAllPref;
     private CheckBoxPreference mEnableQmDarkThemePref;
 
+    // Blacklist
+    private PreferenceScreen mButtonBlacklist;
+
     // Keyboard input type
     private ListPreference mInputTypePref;
     private CharSequence[] mInputTypeEntries;
@@ -142,6 +151,18 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         // we have to reload it whenever we resume.
         setEnabledNotificationsPref();
         registerListeners();
+        updateBlacklistSummary();
+    }
+
+    private void updateBlacklistSummary() {
+        if (mButtonBlacklist != null) {
+            if (PreferenceManager.getDefaultSharedPreferences(this).
+                    getBoolean("button_enable_blacklist", false)) {
+                mButtonBlacklist.setSummary(R.string.blacklist_summary);
+            } else {
+                mButtonBlacklist.setSummary(R.string.blacklist_summary_disabled);
+            }
+        }
     }
 
     private void loadPrefs() {
@@ -183,6 +204,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         // Vibration
         mVibrateEntries = getResources().getTextArray(R.array.prefEntries_vibrateWhen);
         mVibrateValues = getResources().getTextArray(R.array.prefValues_vibrateWhen);
+
+        // Blacklist
+        mButtonBlacklist = (PreferenceScreen) findPreference(BUTTON_BLACKLIST);
 
         setMessagePreferences();
     }
