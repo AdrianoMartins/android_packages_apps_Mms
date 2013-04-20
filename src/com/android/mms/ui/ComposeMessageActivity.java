@@ -170,6 +170,7 @@ import com.android.mms.model.SlideshowModel;
 import com.android.mms.templates.TemplateGesturesLibrary;
 import com.android.mms.templates.TemplatesProvider.Template;
 import com.android.mms.transaction.MessagingNotification;
+import com.android.mms.transaction.SmsReceiverService;
 import com.android.mms.ui.MessageListView.OnSizeChangedListener;
 import com.android.mms.ui.MessageUtils.ResizeImageResultCallback;
 import com.android.mms.ui.RecipientsEditor.RecipientContextMenuInfo;
@@ -2365,6 +2366,9 @@ public class ComposeMessageActivity extends Activity
         // Register a BroadcastReceiver to listen on HTTP I/O process.
         registerReceiver(mHttpProgressReceiver, mHttpProgressFilter);
 
+        registerReceiver(mDelaySentProgressReceiver, mDelaySentProgressFilter);
+        countDownFormat = getString(R.string.remaining_delay_time);
+
         loadMessageContent();
 
         // Update the fasttrack info in case any of the recipients' contact info changed
@@ -2545,6 +2549,7 @@ public class ComposeMessageActivity extends Activity
 
         // Cleanup the BroadcastReceiver.
         unregisterReceiver(mHttpProgressReceiver);
+        unregisterReceiver(mDelaySentProgressReceiver);
     }
 
     @Override
@@ -4699,4 +4704,35 @@ public class ComposeMessageActivity extends Activity
         }
         return super.onCreateDialog(id, args);
     }
+
+    private static String countDownFormat = "";
+    private final IntentFilter mDelaySentProgressFilter = new IntentFilter(
+            SmsReceiverService.ACTION_SENT_COUNT_DOWN);
+
+    private final BroadcastReceiver mDelaySentProgressReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (SmsReceiverService.ACTION_SENT_COUNT_DOWN.equals(intent.getAction())) {
+                int countDown = intent.getIntExtra(SmsReceiverService.DATA_COUNT_DOWN, 0);
+                Uri msgUri = (Uri) intent.getExtra(SmsReceiverService.DATA_MESSAGE_URI);
+                long msgId = ContentUris.parseId(msgUri);
+                MessageItem item = getMessageItem(msgUri.getAuthority(),
+                        msgId, false);
+                if (item != null) {
+                    item.setCountDown(countDown);
+                    int iTotal = mMsgListView.getCount();
+                    int index = 0;
+                    while(index < iTotal) {
+                        MessageListItem v = (MessageListItem) mMsgListView.getChildAt(index);
+                        MessageItem listItem = v.getMessageItem();
+                        if (item.equals(listItem)) {
+                            v.updateDelayCountDown();
+                            break;
+                        }
+                        index++;
+                    }
+                }
+            }
+        }
+    };
 }
