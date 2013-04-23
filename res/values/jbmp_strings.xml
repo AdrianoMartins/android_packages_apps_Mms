@@ -1,0 +1,73 @@
+<!--  Copyright (C) 2013 JBMini Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Blacklist preferences -->
+    <string name="blacklist_title">Blacklist</string>
+    <string name="enable_blacklist_title">Enable blacklist</string>
+    <string name="blacklist_summary_disabled">Disabled</string>
+    <string name="blacklist_summary">Incoming messages from phone numbers in the blacklist will be blocked</string>
+    <string name="blacklist_notify">Show notification</string>
+    <string name="blacklist_regex_title">Use wildcards</string>
+    <string name="blacklist_regex_summary">Use . as a wildcard and * for repetition. E.g. 123.* blocks numbers starting with 123 and .*123.* blocks numbers containing 123</string>
+
+    <!-- Blacklist management -->
+    <string name="add_blacklist_number">Add phone number</string>
+    <string name="add_to_blacklist">Add to blacklist</string>
+    <string name="add_to_blacklist_message">Future messages from %s will be blocked</string>
+    <string name="remove_blacklist_number_title">Remove number</string>
+    <string name="remove_blacklist_number">Do you want to remove %s from the blacklist?</string>
+
+    <!-- Blacklist notifications -->
+    <string name="blacklist_notification">Blocked a message from %s</string>
+    <string name="unblock_number">Unblock</string>
+
+    <!-- Text for the onscreen "Blacklist" button -->
+    <string name="onscreenBlacklistText">Blacklist</string>
+
+    <!-- Button label which indicates the user wants to update a stored
+         phone number; used in several settings-related dialogs -->
+    <string name="change_num">Update</string>
+
+    <!-- Button label used in several settings-related dialogs -->
+    <string name="enable">Enable</string>
+    <!-- Button label used in several settings-related dialogs -->
+    <string name="disable">Disable</string>
+
+    <!-- Label for "cancel" button on the MMI dialog -->
+    <string name="cancel">Cancel</string>
+
+    <!-- Positive button label ("OK") used in several dialogs in the phone UI [CHAR LIMIT=10] -->
+    <string name="ok">OK</string>
+
+    <string name="selectContact">select contact</string>
+
+    <string name="pref_title_delay_send">Delay delivery</string>
+    <string name="pref_summary_delay_send">Delay the delivery of SMS messages by the specified time, during which you may cancel the message</string>
+    <string name="delay_duration_title">Delay duration</string>
+    <string name="delay_send_duration_options_default_entry_1">3 seconds (Default)</string>
+    <string name="delay_send_duration_options_entry_2">4 seconds</string>
+    <string name="delay_send_duration_options_entry_3">5 seconds</string>
+    <string name="delay_send_duration_options_entry_4">6 seconds</string>
+    <string name="delay_send_duration_options_entry_5">7 seconds</string>
+    <string name="delay_send_duration_options_entry_6">8 seconds</string>
+    <string name="delay_send_duration_options_entry_7">9 seconds</string>
+    <string name="delay_send_duration_options_entry_8">10 seconds</string>
+    <string name="remaining_delay_time">The message will be sent after &lt;font color="red"&gt;&lt;big&gt;%1$d&lt;/big&gt;&lt;/font&gt; seconds</string>
+    <string name="sent_countdown">SMS delivery countdown</string>
+
+</resources>
