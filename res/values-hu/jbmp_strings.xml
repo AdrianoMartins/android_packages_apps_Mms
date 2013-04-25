@@ -70,4 +70,8 @@
     <string name="remaining_delay_time">Az üzenet küldéséig &lt;font color="red"&gt;&lt;big&gt;%1$d&lt;/big&gt;&lt;/font&gt; másodperc van hátra</string>
     <string name="sent_countdown">SMS kézbesítés visszaszámláló</string>
 
+    <!-- Add recipients -->
+    <string name="add_recipients">Címzettek hozzáadása</string>
+    <string name="add_recipients_positive_button">Hozzáad</string>
+
 </resources>
