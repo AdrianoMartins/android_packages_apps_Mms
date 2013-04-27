@@ -74,4 +74,8 @@
     <string name="add_recipients">Add recipients</string>
     <string name="add_recipients_positive_button">Add</string>
 
+     <!-- Breathing Notifications -->
+    <string name="sms_breath">Breathing SMS</string>
+    <string name="sms_breath_summary">Will give your sms notifications a breathing effect in the statusbar.</string>
+
 </resources>

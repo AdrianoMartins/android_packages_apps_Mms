@@ -74,4 +74,8 @@
     <string name="add_recipients">Címzettek hozzáadása</string>
     <string name="add_recipients_positive_button">Hozzáad</string>
 
+     <!-- Breathing Notifications -->
+    <string name="sms_breath">Villogó értesítés</string>
+    <string name="sms_breath_summary">Az SMS értesítő ikon villogni fog az értesítési sávon.</string>
+
 </resources>

@@ -69,6 +69,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     public static final String NOTIFICATION_VIBRATE     = "pref_key_vibrate";
     public static final String NOTIFICATION_VIBRATE_WHEN= "pref_key_vibrateWhen";
     public static final String NOTIFICATION_RINGTONE    = "pref_key_ringtone";
+    public static final String NOTIFICATION_BREATH = "pref_key_sms_breath";
     public static final String AUTO_RETRIEVAL           = "pref_key_mms_auto_retrieval";
     public static final String RETRIEVAL_DURING_ROAMING = "pref_key_mms_retrieval_during_roaming";
     public static final String AUTO_DELETE              = "pref_key_auto_delete";
@@ -115,6 +116,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     private CheckBoxPreference mMmsAutoRetrieval;
     private CheckBoxPreference mMmsRetrievalDuringRoaming;
     private ListPreference mVibrateWhenPref;
+    private CheckBoxPreference mBreathPref;
     private CheckBoxPreference mEnableNotificationsPref;
     private Recycler mSmsRecycler;
     private Recycler mMmsRecycler;
@@ -183,6 +185,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mClearHistoryPref = findPreference("pref_key_mms_clear_history");
         mEnableNotificationsPref = (CheckBoxPreference) findPreference(NOTIFICATION_ENABLED);
         mVibrateWhenPref = (ListPreference) findPreference(NOTIFICATION_VIBRATE_WHEN);
+        mBreathPref = (CheckBoxPreference) findPreference(NOTIFICATION_BREATH);
         mManageTemplate = findPreference(MANAGE_TEMPLATES);
         mGestureSensitivity = (ListPreference) findPreference(GESTURE_SENSITIVITY);
 
@@ -553,6 +556,11 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         editor.putBoolean(MessagingPreferenceActivity.NOTIFICATION_ENABLED, enabled);
 
         editor.apply();
+    }
+
+    public static boolean getBreathEnabled(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean(MessagingPreferenceActivity.NOTIFICATION_BREATH, false);
     }
 
     public static boolean getQuickMessageEnabled(Context context) {
