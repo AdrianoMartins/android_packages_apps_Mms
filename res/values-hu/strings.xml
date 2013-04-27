@@ -377,9 +377,13 @@
     <string name="template_not_present_error">Még nincs definiált sablon.</string>
     <string name="template_not_present_error_title">Hiba</string>
     <string name="template_select">Válasszon sablont</string>
-    <string name="template_cancel_confirm_title">Figyelem</string>
-    <string name="template_cancel_confirm_text">Biztosan törölni szeretné?</string>
-    <string name="gestures_already_present">Figyelem: Egy hasonló kézmozdulat már társítva van egy másik sablonhoz!</string>
+    <string name="template_confirm_dialog_title">Törli?</string>
+    <plurals name="template_confirm_delete_conversation">
+        <item quantity="one">Egy sablon kerül törlésre.</item>
+        <item quantity="other"><xliff:g id="number" example="15">%1$s</xliff:g> sablon törlésre kerül.</item>
+    </plurals>
+    <string name="gestures_already_present">Egy hasonló kézmozdulat már társítva van egy másik sablonhoz!</string>
+    <string name="select_template">Válasszon sablont</string>
 
     <!-- Change Vibrate pattern/method for message notification -->
     <string name="pref_title_mms_notification_vibrate_settings">Rezgés beállítások</string>

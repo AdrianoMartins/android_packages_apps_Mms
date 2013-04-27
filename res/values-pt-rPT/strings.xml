@@ -369,8 +369,6 @@
     <string name="template_not_present_error">Não tem modelos definidos</string>
     <string name="template_not_present_error_title">Erro</string>
     <string name="template_select">Seleccione um modelo</string>
-    <string name="template_cancel_confirm_title">Aviso</string>
-    <string name="template_cancel_confirm_text">O modelo irá ser apagado. Prosseguir?</string>
     <string name="gestures_already_present">Aviso: Um gesto semelhante está associado a outro modelo!</string>
     <string name="pref_extra_settings">Preferências extras</string>
     <string name="pref_title_strip_unicode">Remover unicode</string>

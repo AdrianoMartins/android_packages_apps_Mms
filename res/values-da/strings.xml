@@ -368,8 +368,6 @@
     <string name="template_not_present_error">Du har ikke defineret nogen skabelon</string>
     <string name="template_not_present_error_title">Fejl</string>
     <string name="template_select">Vælg en skabelon</string>
-    <string name="template_cancel_confirm_title">Advarsel</string>
-    <string name="template_cancel_confirm_text">Vil du annullere?</string>
     <string name="gestures_already_present">Advarsel: En lign. bevægelse er tilknyttet en anden skabelon!</string>
 
     <!-- Change Vibrate pattern/method for message notification -->

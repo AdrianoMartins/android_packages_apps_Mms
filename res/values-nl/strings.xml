@@ -350,8 +350,6 @@
     <string name="template_not_present_error">U heeft nog geen sjabloon</string>
     <string name="template_not_present_error_title">Fout</string>
     <string name="template_select">Sjabloon selecteren</string>
-    <string name="template_cancel_confirm_title">Let op</string>
-    <string name="template_cancel_confirm_text">Wilt u annuleren?</string>
     <string name="gestures_already_present">Let op: een soortgelijk gebaar is al toegewezen aan een ander sjabloon.</string>
 
     <!-- Change Vibrate pattern/method for message notification -->

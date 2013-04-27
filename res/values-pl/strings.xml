@@ -367,8 +367,6 @@
     <string name="template_not_present_error">Brak zdefiniowanych szablonów</string>
     <string name="template_not_present_error_title">Błąd</string>
     <string name="template_select">Wybierz szablon</string>
-    <string name="template_cancel_confirm_title">Ostrzeżenie</string>
-    <string name="template_cancel_confirm_text">Szablon zostanie usunięty</string>
     <string name="gestures_already_present">Ostrzeżenie: Podobny gest jest już powiązany z innym szablonem!</string>
 
     <!-- Change Vibrate pattern/method for message notification -->
