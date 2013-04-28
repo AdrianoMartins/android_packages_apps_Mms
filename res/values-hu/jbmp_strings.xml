@@ -83,4 +83,10 @@
     <string name="msg_sig_summary">Egyéni aláírás beállítása a kimenő üzenetekhez</string>
     <string name="msg_sig_enter_text">Írd be az aláírás szövegét</string>
 
+    <string name="pref_char_settings">Karakter beállítás</string>
+
+    <!-- Avatar -->
+    <string name="hide_avatar">Igazolványkép rejtése</string>
+    <string name="hide_avatar_summary">Az üzenetlistából eltünteti a névjegyek igazolványképét</string>
+
 </resources>

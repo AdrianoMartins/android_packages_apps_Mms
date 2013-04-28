@@ -224,13 +224,8 @@
             android:title="@string/pref_title_template_gestures_sensitivity" />
     </PreferenceCategory>
 
-    <!-- Extra Settings -->
-    <PreferenceCategory android:title="@string/pref_extra_settings">
-        <CheckBoxPreference
-            android:key="pref_key_strip_unicode"
-            android:title="@string/pref_title_strip_unicode"
-            android:summary="@string/pref_summary_strip_unicode"
-            android:defaultValue="false" />
+    <!-- Char Settings -->
+    <PreferenceCategory android:title="@string/pref_char_settings">
 
         <CheckBoxPreference
             android:key="pref_key_enable_emojis"
@@ -250,6 +245,16 @@
             android:summary="@string/pref_summary_mms_use_sent_timestamp"
             android:defaultValue="false" />
 
+        <CheckBoxPreference
+            android:key="pref_key_strip_unicode"
+            android:title="@string/pref_title_strip_unicode"
+            android:summary="@string/pref_summary_strip_unicode"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <!-- Extra Settings -->
+    <PreferenceCategory android:title="@string/pref_extra_settings">
+
         <ListPreference
             android:key="pref_key_mms_input_type"
             android:title="@string/pref_title_input_type"
@@ -264,6 +269,12 @@
             android:dialogTitle="@string/msg_sig_title"
             android:hint="@string/msg_sig_enter_text"
             android:defaultValue="" />
+
+        <CheckBoxPreference
+            android:key="pref_hide_avatar"
+            android:title="@string/hide_avatar"
+            android:summary="@string/hide_avatar_summary"
+            android:defaultValue="false" />
     </PreferenceCategory>
 
     <!-- Blacklist settings -->
