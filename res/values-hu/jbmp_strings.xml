@@ -78,4 +78,9 @@
     <string name="sms_breath">Villogó értesítés</string>
     <string name="sms_breath_summary">Az SMS értesítő ikon villogni fog az értesítési sávon.</string>
 
+    <!-- Message signature -->
+    <string name="msg_sig_title">Aláírás</string>
+    <string name="msg_sig_summary">Egyéni aláírás beállítása a kimenő üzenetekhez</string>
+    <string name="msg_sig_enter_text">Írd be az aláírás szövegét</string>
+
 </resources>

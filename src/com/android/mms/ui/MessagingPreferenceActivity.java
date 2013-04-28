@@ -30,6 +30,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
+import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
@@ -84,6 +85,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     public static final String FULL_TIMESTAMP            = "pref_key_mms_full_timestamp";
     public static final String SENT_TIMESTAMP            = "pref_key_mms_use_sent_timestamp";
     public static final String ENABLE_EMOJIS             = "pref_key_enable_emojis";
+    public static final String MSG_SIGNATURE            = "pref_msg_signature";
 
     // QuickMessage
     public static final String QUICKMESSAGE_ENABLED      = "pref_key_quickmessage";
@@ -99,6 +101,8 @@ public class MessagingPreferenceActivity extends PreferenceActivity
 
     // Menu entries
     private static final int MENU_RESTORE_DEFAULTS    = 1;
+
+    private SharedPreferences sp;
 
     public static final String DELAY_SEND_ENABLED     = "pref_key_delay_send";
     public static final String DELAY_SEND_DURATION     = "pref_delay_send_duration";
@@ -140,9 +144,13 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     private CharSequence[] mInputTypeEntries;
     private CharSequence[] mInputTypeValues;
 
+    private EditTextPreference mSignature;
+    private String mSignatureText;
+
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        sp = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 
         loadPrefs();
 
@@ -188,6 +196,10 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mBreathPref = (CheckBoxPreference) findPreference(NOTIFICATION_BREATH);
         mManageTemplate = findPreference(MANAGE_TEMPLATES);
         mGestureSensitivity = (ListPreference) findPreference(GESTURE_SENSITIVITY);
+
+        mSignature = (EditTextPreference) findPreference(MSG_SIGNATURE);
+        mSignature.setOnPreferenceChangeListener(this);
+        mSignature.setText(sp.getString(MSG_SIGNATURE, ""));
 
         // Get the MMS retrieval settings. Defaults to enabled with roaming disabled
         ContentResolver resolver = getContentResolver();
@@ -638,6 +650,11 @@ public class MessagingPreferenceActivity extends PreferenceActivity
             mDelaySendMessagDurationPref.setSummary(mDelaySendMessagDurationPref
                     .getEntry());
             result = true;
+        } else if (preference == mSignature) {
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putString(MSG_SIGNATURE, (String) newValue);
+            editor.commit();
+            mSignature.setText(sp.getString(MSG_SIGNATURE, ""));
         }
         return result;
     }
