@@ -75,8 +75,8 @@
     <string name="add_recipients_positive_button">Adicionar</string>
 
      <!-- Breathing Notifications -->
-    <string name="sms_breath">Notificação em Movimento</string>
-    <string name="sms_breath_summary">Dará uma efeito de movimento ao ícone de notificação de novas mensagens na barra de status.</string>
+    <string name="sms_breath">Efeito na Notificação</string>
+    <string name="sms_breath_summary">Ativa um efeito de movimento ao ícone de notificação de novas mensagens na barra de status.</string>
 
     <!-- Message signature -->
     <string name="msg_sig_title">Assinatura</string>
@@ -86,7 +86,7 @@
     <string name="pref_char_settings">Configuração de Caracteres</string>
 
     <!-- Avatar -->
-    <string name="hide_avatar">Esconder os Avatar</string>
-    <string name="hide_avatar_summary">Esconder os Avatar na lista de conversação</string>
+    <string name="hide_avatar">Esconder Avatar</string>
+    <string name="hide_avatar_summary">Esconder os Avatares na lista de conversação</string>
 
 </resources>
