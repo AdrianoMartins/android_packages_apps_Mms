@@ -1,0 +1,77 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Blacklist preferences -->
+    <string name="blacklist_title">Schwarzliste</string>
+    <string name="enable_blacklist_title">Schwarzliste aktivieren</string>
+    <string name="blacklist_summary_disabled">Deaktivieren</string>
+    <string name="blacklist_summary">Eingehende Nachrichten von Nummern in der Schwarzen Liste werden geblockt</string>
+    <string name="blacklist_notify">Benachrichtigung anzeigen</string>
+    <string name="blacklist_regex_title">Platzhalter verwenden</string>
+    <string name="blacklist_regex_summary">Verwende . als Platzhalter und * für Wiederholungen. Bsp. 123.* blockiert Nummern die mit 123 beginnen und .*123.* die 123 beinhalten</string>
+
+    <!-- Blacklist management -->
+    <string name="add_blacklist_number">Nummer hinzufügen</string>
+    <string name="add_to_blacklist">Auf die Schwarzliste</string>
+    <string name="add_to_blacklist_message">Neue Nachrichten von %s werden blockiert</string>
+    <string name="remove_blacklist_number_title">Nummer entfernen</string>
+    <string name="remove_blacklist_number">Möchten Sie %s aus der Liste entfernen?</string>
+
+    <!-- Blacklist notifications -->
+    <string name="blacklist_notification">Blockierte Nachricht von %s</string>
+    <string name="unblock_number">Entsperren</string>
+
+    <!-- Text for the onscreen "Blacklist" button -->
+    <string name="onscreenBlacklistText">Schwarzliste</string>
+
+    <!-- Button label which indicates the user wants to update a stored
+         phone number; used in several settings-related dialogs -->
+    <string name="change_num">Aktualisierung</string>
+
+    <!-- Button label used in several settings-related dialogs -->
+    <string name="enable">Aktivieren</string>
+    <!-- Button label used in several settings-related dialogs -->
+    <string name="disable">Deaktivieren</string>
+
+    <!-- Label for "cancel" button on the MMI dialog -->
+    <string name="cancel">Abbrechen</string>
+
+    <!-- Positive button label ("OK") used in several dialogs in the phone UI [CHAR LIMIT=10] -->
+    <string name="ok">OK</string>
+
+    <string name="selectContact">Kontakt auswählen</string>
+
+    <string name="pref_title_delay_send">Sendeverzögerung</string>
+    <string name="pref_summary_delay_send">Versenden einer SMS nach Ablauf einer definierten Zeit, in der die SMS noch abgebrochen werden kann</string>
+    <string name="delay_duration_title">Verzögerungsdauer</string>
+    <string name="delay_send_duration_options_default_entry_1">3 Sekunden (Standard)</string>
+    <string name="delay_send_duration_options_entry_2">4 Sekunden</string>
+    <string name="delay_send_duration_options_entry_3">5 Sekunden</string>
+    <string name="delay_send_duration_options_entry_4">6 Sekunden</string>
+    <string name="delay_send_duration_options_entry_5">7 Sekunden</string>
+    <string name="delay_send_duration_options_entry_6">8 Sekunden</string>
+    <string name="delay_send_duration_options_entry_7">9 Sekunden</string>
+    <string name="delay_send_duration_options_entry_8">10 Sekunden</string>
+    <string name="remaining_delay_time">Die Nachricht wird in &lt;font color="red"&gt;&lt;big&gt;%1$d&lt;/big&gt;&lt;/font&gt; Sekunden gesendet</string>
+    <string name="sent_countdown">Sendeverzögerungscountdown</string>
+
+    <!-- Add recipients -->
+    <string name="add_recipients">Empfänger hinzufügen</string>
+    <string name="add_recipients_positive_button">Hinzufügen</string>
+
+     <!-- Breathing Notifications -->
+    <string name="sms_breath">Wiederkehrende Benachrichtigung</string>
+    <string name="sms_breath_summary">Nicht gelesene SMS-Benachrichtigungen erscheinen blinkend in der Statusleiste</string>
+
+    <!-- Message signature -->
+    <string name="msg_sig_title">Signatur</string>
+    <string name="msg_sig_summary">Eigene Signatur festlegen</string>
+    <string name="msg_sig_enter_text">Text eingeben</string>
+
+    <string name="pref_char_settings">Zeicheneinstellungen</string>
+
+    <!-- Avatar -->
+    <string name="hide_avatar">Avatar ausblenden</string>
+    <string name="hide_avatar_summary">Bild in der Unterhaltung nicht anzeigen</string>
+
+</resources>
